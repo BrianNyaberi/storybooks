@@ -6,7 +6,7 @@ const exphbs  = require('express-handlebars')
 const passport  = require('passport')
 const session  = require('express-session')
 const connectDB = require('./config/db')
-const { session } = require('passport/lib')
+// const { session } = require('passport/lib')
 
 // Load the config file
 dotenv.config({path:'./config/config.env'})
@@ -46,6 +46,8 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 // Routes 
 app.use('/', require('./routes/index'))
+app.use('/auth', require('./routes/auth'))
+
 const PORT = process.env.PORT || 3000
 
 app.listen(PORT, console.log(`Server is running in ${process.env.NODE_ENV} mode on port ${PORT}`))
